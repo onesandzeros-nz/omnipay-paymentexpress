@@ -244,6 +244,7 @@ class PxPayAuthorizeRequest extends AbstractRequest
         $data->CurrencyInput = $this->getCurrency();
         $data->UrlSuccess = $this->getReturnUrl();
         $data->UrlFail = $this->getCancelUrl() ?: $this->getReturnUrl();
+        $data->UrlCallback = $this->getNotifyUrl();
 
         if ($this->getDescription()) {
             $data->MerchantReference = $this->getDescription();
