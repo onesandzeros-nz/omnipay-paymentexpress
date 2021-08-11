@@ -226,6 +226,26 @@ class PxPayAuthorizeRequest extends AbstractRequest
         return $this->setParameter('forcePaymentMethod', $value);
     }
 
+    public function getBillingId()
+    {
+        return $this->getParameter('billingId');
+    }
+
+    public function setBillingId($value)
+    {
+        return $this->setParameter('billingId', $value);
+    }
+
+    public function getEnableAddBillCard()
+    {
+        return $this->getParameter('enableAddBillCard');
+    }
+
+    public function setEnableAddBillCard($value)
+    {
+        return $this->setParameter('enableAddBillCard', $value);
+    }
+
 
     /**
      * Get the transaction data
@@ -276,6 +296,14 @@ class PxPayAuthorizeRequest extends AbstractRequest
 
         if ($this->getForcePaymentMethod()) {
             $data->ForcePaymentMethod = $this->getForcePaymentMethod();
+        }
+
+        if ($this->getBillingId()) {
+            $data->BillingId = $this->getBillingId();
+        }
+
+        if ($this->getEnableAddBillCard()) {
+            $data->EnableAddBillCard = $this->getEnableAddBillCard();
         }
 
         return $data;
